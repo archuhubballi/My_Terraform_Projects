@@ -3,6 +3,18 @@ provider "aws" {
 }
 
 resource "aws_instance" "Archana" {
-    ami = "ami-036841078a4b68e14"
-    instance_type = "t2.micro" 
+    ami = var.ami
+    instance_type = var.instance_type
 }
+variable "ami" {
+  description = "Value for ami"
+  type = string
+  default = "ami-036841078a4b68e14"
+}
+
+variable "instance_type" {
+  description = "value for instance type"
+  type = string
+  default = "t2.micro"
+}
+
