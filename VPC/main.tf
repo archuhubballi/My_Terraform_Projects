@@ -18,5 +18,5 @@ resource "aws_subnet" "Archana" {
 resource "aws_instance" "Demo_instance" {
   ami = var.ami
   instance_type = var.instance_type
-  subnet_id = aws_vpc.Archana.id
+  subnet_id = aws_subnet.Archana.id
 }
