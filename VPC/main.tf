@@ -52,5 +52,10 @@ resource "aws_route_table_association" "PublicRTassociation" {
 resource "aws_instance" "Demo_instance" {
   ami = var.ami
   instance_type = var.instance_type
-  subnet_id = aws_subnet.PrivateSubnet.id
+  subnet_id = aws_subnet.PublicSubnet.id
+}
+
+# Elastic IP
+resource "aws_eip" "Demo_eip" {
+  instance = aws_instance.Demo_instance.id
 }
